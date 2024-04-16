@@ -1,0 +1,35 @@
+{% extends 'bootstrap/base.html' %}
+{% include "header.html" %}
+{% block styles %}
+
+{{super()}}
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+{% endblock %}
+
+{% block title %}Coffee and Wifi{% endblock %}
+
+{% block content %}
+    <h1 class="title">Welcome to the Cafe & Wifi API</h1>
+    <body style="text-align: center">Have a look through our cafes and see if you can find any that take your fancy, and if you don't want to pick <a href="{{url_for ('random_cafe')}}"> click  here </a> for a random suggestion!</body>
+<!--    <a href="https://documenter.getpostman.com/view/25675499/2s935oLPZ9"> View the documentation for the api.</a>-->
+    {% for cafe in all_cafes %}
+    <div class=" cafe-container">
+        <a href="{{cafe['map_url']}}">
+        <img class="cafe_img" src="{{cafe['img_url']}}">
+        <div class="cafe-description">
+                <h3> Cafe name: {{cafe['name']}} </h3>
+                <p>Location: {{cafe['location']}}</p>
+                <p> Black Coffee Price: {{cafe['coffee_price']}}</p>
+                <p>Wifi: {{cafe['wifi']}}</p>
+                <p>Toilets: {{cafe['has_toilet']}}</p>
+                <p>Power: {{cafe['has_sockets']}}</p>
+                <p>Can take calls: {{cafe['can_take_calls']}}</p>
+
+        </div>
+        </a>
+    </div>
+
+{% endfor%}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'bootstrap/base.html' %}
+{% include "header.html" %}
+{% block styles %}
+
+{{super()}}
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+{% endblock %}
+
+{% block title %}Random Cafe{% endblock %}
+
+{% block content %}
+<h1 class="title">Random Cafe</h1>
+<div class=" cafe-container">
+        <a href="{{cafe['map_url']}}">
+        <img class="cafe_img" src="{{cafe['img_url']}}">
+        <div class="cafe-description">
+                <h3> Cafe name: {{cafe['name']}} </h3>
+                <p>Location: {{cafe['location']}}</p>
+                <p> Black Coffee Price: {{cafe['coffee_price']}}</p>
+                <p>Wifi: {{cafe['wifi']}}</p>
+                <p>Toilets: {{cafe['has_toilet']}}</p>
+                <p>Power: {{cafe['has_sockets']}}</p>
+                <p>Can take calls: {{cafe['can_take_calls']}}</p>
+
+        </div>
+        </a>
+{% endblock %}
