@@ -1,3 +1,7 @@
+a {
+    color: #ffc107;
+}
+
 body {
 background-color: #333;
 color: white;
@@ -5,9 +9,6 @@ margin: 30px;
 padding: 30px
 }
 
-a {
-    color: #ffc107;
-}
 
 .cafe-description {
     text-align: left;
